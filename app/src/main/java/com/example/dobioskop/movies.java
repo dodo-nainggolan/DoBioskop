@@ -1,10 +1,12 @@
 package com.example.dobioskop;
 
+
 public class movies {
     private int foto;
     private String judul;
     private String deskripsi;
     private String rilis;
+
 
     public int getFoto() {
         return foto;
@@ -38,6 +40,4 @@ public class movies {
     public void setRilis(String rilis) {
         this.rilis = rilis;
     }
-
-
 }

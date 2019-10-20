@@ -2,6 +2,7 @@ package com.example.dobioskop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, Movies.get(i).getJudul(), Toast.LENGTH_SHORT).show();
+
+                moviesParcelable moviesParcelable;
+                moviesParcelable = new moviesParcelable();
+
+                moviesParcelable.setJudul(teksJudul[i]);
+                moviesParcelable.setRilis(teksRilis[i]);
+                moviesParcelable.setDeskripsi(teksDeskripsi[i]);
+                moviesParcelable.setFoto(dataFoto.getResourceId(i, -1));
+
+                Intent intent = new Intent(MainActivity.this, detailActivity.class);
+                intent.putExtra("myData", moviesParcelable);
+                startActivity(intent);
+
             }
         });
     }
